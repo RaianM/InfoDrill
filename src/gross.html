@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script src="https://kit.fontawesome.com/16c8f48705.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,13 +38,13 @@
                     <p class="nat-gas">Natural Gas</p>
                 </li>
                 <li>
-                    <a href="test.html">
+                    <a href="oil.html">
                         <span class="icon"><i class="fa-solid fa-droplet"></i></span>
                         <span class="item">Oil Wells</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="gross.html">
                         <span class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
                         <span class="item2">Gross Withdrawals</span>
                     </a>
@@ -52,15 +53,15 @@
                     <p class="nat-gas">Crude Oil/Petroleum</p>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="field.html">
                         <span class="icon"><i class="fa-solid fa-hammer"></i></span>
                         <span class="item">Field Production</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="land.html">
                         <span class="icon"><i class="fa-solid fa-money-bill-trend-up"></i></span>
-                        <span class="item">Drilling Costs</span>
+                        <span class="item">Landed Costs</span>
                     </a>
                 </li> 
                 </ul>
@@ -72,6 +73,62 @@
             <img class="drill-pic" src = "/images/ConocoPhillipsPic.jpeg">
         </div>
         
+        <div class = "container"> <!-- class was summary and under the upper div tag -->
+            <p class = "info2">Gross Withdrawals of Natural Gas</p>
+            <canvas id="canvas"></canvas>
+        </div>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+    <script type="module">
+        import { getLabels } from "./grossWithdrawals.js";
+        const ctx = document.getElementById('canvas').getContext('2d');
+        let stuff = getLabels();
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: stuff[0],//['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: 'Gross Withdrawal',
+                    data: stuff[1],//[12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'U.S. States'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Gross Withdrawals (Million Cubic Feet)'
+                        }
+                    }
+                }
+            }
+        });
+        </script>
+
         <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
     </div>
 

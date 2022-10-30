@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class = "NavBar">
-        <p class="tab-text">Oil Wells</p>
+        <p class="tab-text">Field Production</p>
     </div>
 
     <div class="wrapper">
@@ -68,28 +68,28 @@
         </div>
     </div>
 
-    <div class="overview-test">
+    <div class="overview">
         <div class="pic-stuff">
             <img class="drill-pic" src = "/images/ConocoPhillipsPic.jpeg">
         </div>
-   
+        
         <div class = "container"> <!-- class was summary and under the upper div tag -->
-            <p class = "info2">Number of Wells that produced Natural Gas in 2020</p>
+            <p class = "info2">Petroleum Field Production per State</p>
             <canvas id="canvas"></canvas>
         </div>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
-        <script src="oilWell.js"></script>
+
     <script type="module">
-        import { getLabels } from "./oilWell.js";
+        import { getLabels } from "./petroleumProduction.js";
         const ctx = document.getElementById('canvas').getContext('2d');
         let stuff = getLabels();
         const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: stuff[0],  // ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: stuff[0],//['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                 datasets: [{
-                    label: 'Oil Wells per State', 
-                    data: stuff[1], // [12, 19, 3, 5, 2, 3],
+                    label: 'Field Production per State',
+                    data: stuff[1],//[12, 19, 3, 5, 2, 3],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -108,30 +108,30 @@
                     ],
                     borderWidth: 1
                 }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'U.S. States'
-                        }
-                    },
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Number of Wells'
-                        }
-                    }
+    },
+    options: {
+        scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: 'U.S. States'
                 }
+            },
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Field Production (Thousand Barrels)'
+                }
+    
             }
-        });
-    </script>
-        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-    </div>
+        }
+    }
+});
+</script>
 
-    <script type="module" src="oilWell.js"></script>
+
+    <script type="module" src="petroleumProduction.js"></script>
     <script>
         function color() {
             document.getElementById("home").style.color="black";
