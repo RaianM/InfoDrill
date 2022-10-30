@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Merriweather&family=Montserrat&family=Sacramento&display=swap" rel="stylesheet">
+    <title>InfoDrill - Visualizer</title>
+</head>
+<body>
+    <div class = "NavBar">
+        <p class="tab-text">Gross Withdrawals</p>
+    </div>
+
+    <div class="wrapper">
+        <!--Top menu -->
+        <div class="sidebar">
+        <!--profile image & text-->
+        <div class="profile">
+            <h3>InfoDrill</h3>
+            <p>Oil & Gas Production Visualizer</p>
+            </div>
+            <!--menu item-->
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="item">Home</span>
+                    </a>
+    
+                </li>
+                <li>
+                    <p class="nat-gas">Natural Gas</p>
+                </li>
+                <li>
+                    <a href="test.html">
+                        <span class="icon"><i class="fa-solid fa-droplet"></i></span>
+                        <span class="item">Oil Wells</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
+                        <span class="item2">Gross Withdrawals</span>
+                    </a>
+                </li>
+                <li>
+                    <p class="nat-gas">Crude Oil/Petroleum</p>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa-solid fa-hammer"></i></span>
+                        <span class="item">Field Production</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa-solid fa-money-bill-trend-up"></i></span>
+                        <span class="item">Drilling Costs</span>
+                    </a>
+                </li> 
+                </ul>
+        </div>
+    </div>
+
+    <div class="overview-test">
+        <div class="pic-stuff">
+            <img class="drill-pic" src = "/images/ConocoPhillipsPic.jpeg">
+        </div>
+        
+        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+    </div>
+
+    <script type="module" src="oilWell.js"></script>
+    <script>
+        function color() {
+            document.getElementById("home").style.color="black";
+            return;
+        }
+    </script>
+
+
+</body>
+</html>

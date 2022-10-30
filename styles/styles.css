@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Merriweather&family=Montserrat&family=PT+Sans:ital@0;1&family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,500;1,100&family=PT+Sans:ital@0;1&display=swap');
+
+*{
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+body{
+    background: #f5f6fa;
+}
+
+.wrapper .sidebar{
+    background: rgb(5, 68, 104);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 225px;
+    height: 100%;
+    padding: 20px 0;
+    border-right: 2px solid #10558d;
+    transition: all 0.5s ease;
+}
+
+.wrapper .sidebar .profile{
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.wrapper .sidebar .profile h3{
+  color: #ffffff;
+  margin: 10px 0 5px;
+}
+
+.wrapper .sidebar .profile p{
+  color: rgb(206, 240, 253);
+  font-size: 14px;
+}
+
+.nat-gas{
+  color: rgb(206, 240, 253);
+  font-weight: bold;
+  text-align: center;
+  padding: 13px 30px;
+  font-size: 16px;
+}
+
+.wrapper .sidebar ul li a{
+  display: block;
+  padding: 13px 30px;
+  border-bottom: 1px solid #10558d;
+  color: rgb(241, 237, 237);
+  font-size: 16px;
+  position: relative;
+}
+
+.wrapper .sidebar ul li a .icon{
+  color: #dee4ec;
+  width: 30px;
+  display: inline-block;
+}
+
+.wrapper .sidebar ul li a:hover,
+.wrapper .sidebar ul li a.active{
+    color: #0c7db1;
+
+    background:white;
+    border-right: 2px solid rgb(5, 68, 104);
+}
+
+.wrapper .sidebar ul li a:hover .icon,
+.wrapper .sidebar ul li a.active .icon{
+    color: #0c7db1;
+}
+
+.wrapper .sidebar ul li a:hover:before,
+.wrapper .sidebar ul li a.active:before{
+    display: block;
+}
+
+.item2 {
+  font-size: 14.5px;
+}
+
+.NavBar {
+  list-style-type: none;
+  position: relative;
+  left: 225px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: #333;
+  display: block;
+}
+
+.NavBar .tab-text {
+  font-family: 'Kanit', sans-serif;
+  padding: 10px;
+  color: white;
+  position: relative;
+  left: 40%;
+}
+
+.NavBar li {
+  float: left;
+}
+
+.NavBar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.NavBar li a:hover {
+  background-color: #111;
+}
+
+.overview {
+  background: linear-gradient(rgba(0,0,0,1), rgba(5, 68, 104,0.5));
+  height: 100%;
+}
+
+.overview p{
+  position:relative;
+  padding:20px;
+  margin-left:225px;
+}
+
+.overview-test {
+  background: linear-gradient(rgba(0,0,0,1), rgba(5, 68, 104,0.5));
+  height: 100%;
+}
+
+.overview-test p{
+  position:relative;
+  padding:20px;
+  margin-left:225px;
+}
+
+.pic-stuff img{
+  position: absolute;
+  left: 225px;
+  opacity: .5;
+  height: 100%;
+}
+
+.summary {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  height: 100%;
+}
+
+.title {
+  font-family: 'Kanit', sans-serif;
+  color: white;
+  position: relative;
+  left: 110px;
+  font-size: 80px;
+  text-align: center;
+}
+
+.info {
+  font-family: 'Kanit', sans-serif;
+  font-style: italic;
+}
+
+
+
