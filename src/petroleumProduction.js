@@ -17,7 +17,7 @@ let grossWithdrawals = [];
 var arrSize = data['response']['data'].length;
 
 for(let i = 0; i < arrSize; i++) {
-    if (data['response']['data'][i]['period'] == 2021 && data['response']['data'][i]['value'] != null && data['response']['data'][i]['value'] != 0 && data['response']['data'][i]['area-name'].includes("PADD") == false && data['response']['data'][i]['area-name'].includes("D") == false) {
+    if (data['response']['data'][i]['period'] == 2021 && data['response']['data'][i]['value'] != null && data['response']['data'][i]['value'] != 0 && data['response']['data'][i]['area-name'].includes("PADD") == false && data['response']['data'][i]['area-name'].includes("D") == false && data['response']['data'][i]['area-name'] != "NA") {
         let withdrawal = [data['response']['data'][i]['period'], data['response']['data'][i]['area-name'], data['response']['data'][i]['value']];
         let index = checkLocation(grossWithdrawals, withdrawal[1]);
         
@@ -49,11 +49,13 @@ export function getLabels() {
 export function getStateLabels(state) {
     let stateD = [];
     for(let i = 0; i < arrSize; i++) {
-        if (data['response']['data'][i]['area-name'] == state && data['response']['data'][i]['period'] >= 2012) {
+        if (data['response']['data'][i]['area-name'] == state && data['response']['data'][i]['period'] >= 2012 && data['response']['data'][i]['value'] != null && data['response']['data'][i]['value'] != 0 && data['response']['data'][i]['area-name'].includes("PADD") == false && data['response']['data'][i]['area-name'].includes("D") == false && data['response']['data'][i]['area-name'] != "NA") {
             stateD.push([data['response']['data'][i]['period'], data['response']['data'][i]['value']]);
+            console.log([data['response']['data'][i]['period'], data['response']['data'][i]['value']]);
         }
     }
     const stateData = stateD.sort((a, b) => a[0] - b[0])
+    console.log(stateData);
 
     let sendStateStuff = [];
     let sendStateLabels = [];

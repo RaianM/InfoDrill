@@ -65,6 +65,10 @@
                     </a>
                 </li> 
                 </ul>
+
+                <div class = "copyright">
+                    <p>© Copyrighted by Shaz Ali Momin, Raian Momin, Neha Ali, Arsh Ali</p>
+                </div>
         </div>
     </div>
 
@@ -74,38 +78,40 @@
         </div>
         
         <div class = "container"> <!-- class was summary and under the upper div tag -->
-            <p class = "info5">Petroleum Field Production per State</p>
+            <p class = "info5" id="title-stuff">Petroleum Field Production per State</p>
             <canvas id="canvas"></canvas>
         </div>
         <div class = 'dropdown'>
-            <label class="graphname" for="states">Choose a graph:</label>
+            <label class="graphname" for="states">Choose a state:</label>
             <select class="statesdrop" name="states" id="states-down">
                 <option value="ALL" selected>ALL</option>
-                <option value="TEXAS">USA-PA</option>
-                <option value="opel">OHIO</option>
-                <option value="audi">USA-MT</option>
-                <option value="opel">TEXAS</option>
-                <option value="audi">USA-NM</option>
-                <option value="TEXAS">USA-NE</option>
-                <option value="opel">USA-WV</option>
-                <option value="audi">USA-UT</option>
-                <option value="opel">USA-AK</option>
-                <option value="audi">USA-AL</option>
-                <option value="TEXAS">USA-LA</option>
-                <option value="opel">USA-VA</option>
-                <option value="audi">USA-SD</option>
-                <option value="opel">CALIFORNIA</option>
-                <option value="audi">USA-MS</option>
-                <option value="TEXAS">USA-ND</option>
-                <option value="opel">FLORIDA</option>
-                <option value="audi">USA-OK</option>
-                <option value="opel">USA-MI</option>
-                <option value="audi">NEW YORK</option>
-                <option value="TEXAS">COLORADO</option>
-                <option value="opel">USA-KY</option>
-                <option value="audi">USA-NV</option>
+                <option value="TEXAS">USA-MI</option>
                 <option value="opel">USA-AR</option>
-                <option value="audi">USA-WY</option>
+                <option value="audi">USA-MT</option>
+                <option value="opel">USA-AZ</option>
+                <option value="audi">TEXAS</option>
+                <option value="TEXAS">USA-UT</option>
+                <option value="opel">USA-AL</option>
+                <option value="audi">USA-TN</option>
+                <option value="opel">USA-LA</option>
+                <option value="audi">USA-MO</option>
+                <option value="TEXAS">CALIFORNIA</option>
+                <option value="opel">USA-WY</option>
+                <option value="audi">USA-NE</option>
+                <option value="opel">USA-NM</option>
+                <option value="audi">USA-NV</option>
+                <option value="TEXAS">USA-OK</option>
+                <option value="opel">OHIO</option>
+                <option value="audi">USA-MS</option>
+                <option value="opel">USA-WV</option>
+                <option value="audi">USA-IN</option>
+                <option value="TEXAS">USA-AK</option>
+                <option value="opel">NEW-YORK</option>
+                <option value="audi">USA-PA</option>
+                <option value="opel">USA-KS</option>
+                <option value="audi">USA-IL</option>
+                <option value="opel">USA-VA</option>
+                <option value="audi">USA-KY</option>
             </select>    
     </div>
 
@@ -142,7 +148,7 @@
                     data: {
                         labels: stuff[0],  // ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                         datasets: [{
-                            label: 'Oil Wells per State', 
+                            label: 'Field Production per State', 
                             data: stuff[1], // [12, 19, 3, 5, 2, 3],
                             backgroundColor: 'transparent',
                             borderColor: 'red',
@@ -150,20 +156,21 @@
                         }]
                     },
                     options: {
+                        animation: false,
                         scales: {
                             x: {
                                 title: {
                                     display: true,
-                                    text: 'U.S. States'
+                                    text: 'Year'
                                 }
                             },
                             y: {
                                 beginAtZero: true,
                                 title: {
                                     display: true,
-                                    text: 'Number of Wells'
+                                    text: 'Field Production (MBBL)'
                                 }
-                            }
+                            },
                         }
                     }
                 });
@@ -177,7 +184,7 @@
                     data: {
                         labels: stuff[0],  // ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                         datasets: [{
-                            label: 'Oil Wells per State', 
+                            label: 'Field Production per State', 
                             data: stuff[1], // [12, 19, 3, 5, 2, 3],
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
@@ -199,6 +206,7 @@
                         }]
                     },
                     options: {
+                        animation: false,
                         scales: {
                             x: {
                                 title: {
@@ -210,7 +218,7 @@
                                 beginAtZero: true,
                                 title: {
                                     display: true,
-                                    text: 'Number of Wells'
+                                    text: 'Field Production (MBBL)'
                                 }
                             }
                         }
