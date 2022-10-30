@@ -107,7 +107,25 @@ body{
   padding: 10px;
   color: white;
   position: relative;
-  left: 40%;
+  left: 37%;
+}
+
+.NavBar .tab-gross {
+  font-family: 'Kanit', sans-serif;
+  font-size: 25px;
+  padding: 10px;
+  color: white;
+  position: relative;
+  left: 34%;
+}
+
+.NavBar .tab-field {
+  font-family: 'Kanit', sans-serif;
+  font-size: 25px;
+  padding: 10px;
+  color: white;
+  position: relative;
+  left: 36%;
 }
 
 .NavBar li {
@@ -179,7 +197,43 @@ body{
 
 .info2 {
   position: relative;
-  left: 170px;
+  left: 400px;
+  font-family: 'Kanit', sans-serif;
+  font-style: italic;
+  font-size: 20px;
+  color: white;
+}
+
+.info3 {
+  position: relative;
+  left: 210px;
+  font-family: 'Kanit', sans-serif;
+  font-style: italic;
+  font-size: 20px;
+  color: white;
+}
+
+.info4 {
+  position: relative;
+  left: 280px;
+  font-family: 'Kanit', sans-serif;
+  font-style: italic;
+  font-size: 20px;
+  color: white;
+}
+
+.info5 {
+  position: relative;
+  left: 275px;
+  font-family: 'Kanit', sans-serif;
+  font-style: italic;
+  font-size: 20px;
+  color: white;
+}
+
+.info6 {
+  position: relative;
+  left: 235px;
   font-family: 'Kanit', sans-serif;
   font-style: italic;
   font-size: 20px;
@@ -199,4 +253,47 @@ body{
   height: 200px
 }
 
+.dropdown {
+  position: absolute;
+  left: 80%;
+}
+
+.statesdrop {
+  font-size: 20px;
+  font-family: 'Kanit', sans-serif;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.graphname {
+  font-family: 'Kanit', sans-serif;
+  font-style: italic;
+  color: white;
+  font-size: 20px;
+}
+
+.tab-text {
+  font-size: 25px;
+  left: 500px;
+}
+
+.description {
+  font-family: 'Kanit', sans-serif;
+  font-style: italic;
+  color: white;
+  position: relative;
+  padding: 20px;
+  margin-top: 430px;
+  left: 15px;
+  font-size: 30px;
+}
+
+.copyright {
+  margin-top: 250px;
+  color: rgb(206, 240, 253);
+  text-align: center;
+  font-size: 12px;
+
+
+}
 

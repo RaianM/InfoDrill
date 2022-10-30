@@ -17,7 +17,7 @@ let grossWithdrawals = [];
 var arrSize = data['response']['data'].length;
 
 for(let i = 0; i < arrSize; i++) {
-    if (data['response']['data'][i]['period'] == 2021 && data['response']['data'][i]['value'] != null && data['response']['data'][i]['value'] != 0) {
+    if (data['response']['data'][i]['period'] == 2021 && data['response']['data'][i]['value'] != null && data['response']['data'][i]['value'] != 0 && data['response']['data'][i]['area-name'].includes("PADD") == false && data['response']['data'][i]['area-name'].includes("D") == false) {
         let withdrawal = [data['response']['data'][i]['period'], data['response']['data'][i]['area-name'], data['response']['data'][i]['value']];
         let index = checkLocation(grossWithdrawals, withdrawal[1]);
         
@@ -44,4 +44,29 @@ export function getLabels() {
     sendOilStuff[1] = sendOilData;
 
     return sendOilStuff;
+}
+
+export function getStateLabels(state) {
+    let stateD = [];
+    for(let i = 0; i < arrSize; i++) {
+        if (data['response']['data'][i]['area-name'] == state && data['response']['data'][i]['period'] >= 2012) {
+            stateD.push([data['response']['data'][i]['period'], data['response']['data'][i]['value']]);
+        }
+    }
+    const stateData = stateD.sort((a, b) => a[0] - b[0])
+
+    let sendStateStuff = [];
+    let sendStateLabels = [];
+    let sendStateData = [];
+
+    for(let i = 0; i < stateData.length; i++) {
+        sendStateLabels[i] = stateData[i][0];
+    }
+    for(let i = 0; i < stateData.length; i++) {
+        sendStateData[i] = stateData[i][1];
+    }
+    sendStateStuff[0] = sendStateLabels;
+    sendStateStuff[1] = sendStateData
+
+    return sendStateStuff;
 }

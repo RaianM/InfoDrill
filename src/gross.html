@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class = "NavBar">
-        <p class="tab-text">Gross Withdrawals</p>
+        <p class="tab-gross">Gross Withdrawals</p>
     </div>
 
     <div class="wrapper">
@@ -74,9 +74,12 @@
         </div>
         
         <div class = "container"> <!-- class was summary and under the upper div tag -->
-            <p class = "info2">Gross Withdrawals of Natural Gas</p>
+            <p class = "info4">Gross Withdrawals of Natural Gas</p>
             <canvas id="canvas"></canvas>
         </div>
+        <p class = description>Gross Withdrawal is the well stream volume that includes all natural gas 
+            liquids and non-hydrocarbons after oil, lease condensate, and water have been removed. The units are MMCF, which is in Million Cubic Feet.
+        </p>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 
     <script type="module">
@@ -121,7 +124,7 @@
                         beginAtZero: true,
                         title: {
                             display: true,
-                            text: 'Gross Withdrawals (Million Cubic Feet)'
+                            text: 'Gross Withdrawals (MMCF)'
                         }
                     }
                 }

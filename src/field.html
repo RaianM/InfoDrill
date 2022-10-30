@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class = "NavBar">
-        <p class="tab-text">Field Production</p>
+        <p class="tab-field">Field Production</p>
     </div>
 
     <div class="wrapper">
@@ -74,61 +74,246 @@
         </div>
         
         <div class = "container"> <!-- class was summary and under the upper div tag -->
-            <p class = "info2">Petroleum Field Production per State</p>
+            <p class = "info5">Petroleum Field Production per State</p>
             <canvas id="canvas"></canvas>
         </div>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+        <div class = 'dropdown'>
+            <label class="graphname" for="states">Choose a graph:</label>
+            <select class="statesdrop" name="states" id="states-down">
+                <option value="ALL" selected>ALL</option>
+                <option value="TEXAS">USA-PA</option>
+                <option value="opel">OHIO</option>
+                <option value="audi">USA-MT</option>
+                <option value="opel">TEXAS</option>
+                <option value="audi">USA-NM</option>
+                <option value="TEXAS">USA-NE</option>
+                <option value="opel">USA-WV</option>
+                <option value="audi">USA-UT</option>
+                <option value="opel">USA-AK</option>
+                <option value="audi">USA-AL</option>
+                <option value="TEXAS">USA-LA</option>
+                <option value="opel">USA-VA</option>
+                <option value="audi">USA-SD</option>
+                <option value="opel">CALIFORNIA</option>
+                <option value="audi">USA-MS</option>
+                <option value="TEXAS">USA-ND</option>
+                <option value="opel">FLORIDA</option>
+                <option value="audi">USA-OK</option>
+                <option value="opel">USA-MI</option>
+                <option value="audi">NEW YORK</option>
+                <option value="TEXAS">COLORADO</option>
+                <option value="opel">USA-KY</option>
+                <option value="audi">USA-NV</option>
+                <option value="opel">USA-AR</option>
+                <option value="audi">USA-WY</option>
+            </select>    
+    </div>
 
-    <script type="module">
-        import { getLabels } from "./petroleumProduction.js";
-        const ctx = document.getElementById('canvas').getContext('2d');
-        let stuff = getLabels();
-        const myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: stuff[0],//['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: 'Field Production per State',
-                    data: stuff[1],//[12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-    },
-    options: {
-        scales: {
-            x: {
-                title: {
-                    display: true,
-                    text: 'U.S. States'
-                }
-            },
-            y: {
-                beginAtZero: true,
-                title: {
-                    display: true,
-                    text: 'Field Production (Thousand Barrels)'
-                }
+        <p class = description>This graph illustrates the field production of crude oil in each state in the U.S.
+            Field Production is in MBBL, which is a thousand barrels being produced within that year.
+        </p>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+        <script src="oilWell.js"></script>
+        <script type="module">
+            import { getLabels } from "./petroleumProduction.js";
+            import { getStateLabels } from "./petroleumProduction.js";
     
+            const ctx = document.getElementById('canvas').getContext('2d');
+    
+            var selectedText;
+            var myChart;
+            function getVal() {
+                var skillsSelect = document.getElementById("states-down");
+                selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
+                console.log(selectedText);
+                console.log(document.getElementById("title-stuff").textContent);
+                var passing = "Petroleum Field Production ";
+                if(selectedText == "ALL")
+                    passing += "per State";
+                else
+                    passing += selectedText;
+                document.getElementById("title-stuff").textContent = passing;
+    
+                if(selectedText != "ALL") {
+                myChart.destroy();
+                let stuff = getStateLabels(selectedText);
+                myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: stuff[0],  // ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                        datasets: [{
+                            label: 'Oil Wells per State', 
+                            data: stuff[1], // [12, 19, 3, 5, 2, 3],
+                            backgroundColor: 'transparent',
+                            borderColor: 'red',
+                            borderWidth: 4
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'U.S. States'
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Number of Wells'
+                                }
+                            }
+                        }
+                    }
+                });
             }
-        }
-    }
-});
-</script>
+            else {
+                if(myChart != null)
+                    myChart.destroy();
+                let stuff = getLabels();
+                myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: stuff[0],  // ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                        datasets: [{
+                            label: 'Oil Wells per State', 
+                            data: stuff[1], // [12, 19, 3, 5, 2, 3],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'U.S. States'
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Number of Wells'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+                return selectedText;
+            }
+    
+            selectedText = getVal();
+            const statesdrop = document.getElementById('states-down');
+            statesdrop.addEventListener('change', getVal);
+            
+    
+            // if(selectedText != "ALL") {
+            //     let stuff = getStateLabels(selectedText);
+            //     const myChart = new Chart(ctx, {
+            //         type: 'line',
+            //         data: {
+            //             labels: stuff[0],  // ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            //             datasets: [{
+            //                 label: 'Oil Wells per State', 
+            //                 data: stuff[1], // [12, 19, 3, 5, 2, 3],
+            //                 backgroundColor: 'transparent',
+            //                 borderColor: 'red',
+            //                 borderWidth: 4
+            //             }]
+            //         },
+            //         options: {
+            //             scales: {
+            //                 x: {
+            //                     title: {
+            //                         display: true,
+            //                         text: 'U.S. States'
+            //                     }
+            //                 },
+            //                 y: {
+            //                     beginAtZero: true,
+            //                     title: {
+            //                         display: true,
+            //                         text: 'Number of Wells'
+            //                     }
+            //                 }
+            //             }
+            //         }
+            //     });
+            // }
+            // else {
+            //     let stuff = getLabels();
+            //     const myChart = new Chart(ctx, {
+            //         type: 'bar',
+            //         data: {
+            //             labels: stuff[0],  // ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            //             datasets: [{
+            //                 label: 'Oil Wells per State', 
+            //                 data: stuff[1], // [12, 19, 3, 5, 2, 3],
+            //                 backgroundColor: [
+            //                     'rgba(255, 99, 132, 0.2)',
+            //                     'rgba(54, 162, 235, 0.2)',
+            //                     'rgba(255, 206, 86, 0.2)',
+            //                     'rgba(75, 192, 192, 0.2)',
+            //                     'rgba(153, 102, 255, 0.2)',
+            //                     'rgba(255, 159, 64, 0.2)'
+            //                 ],
+            //                 borderColor: [
+            //                     'rgba(255, 99, 132, 1)',
+            //                     'rgba(54, 162, 235, 1)',
+            //                     'rgba(255, 206, 86, 1)',
+            //                     'rgba(75, 192, 192, 1)',
+            //                     'rgba(153, 102, 255, 1)',
+            //                     'rgba(255, 159, 64, 1)'
+            //                 ],
+            //                 borderWidth: 1
+            //             }]
+            //         },
+            //         options: {
+            //             scales: {
+            //                 x: {
+            //                     title: {
+            //                         display: true,
+            //                         text: 'U.S. States'
+            //                     }
+            //                 },
+            //                 y: {
+            //                     beginAtZero: true,
+            //                     title: {
+            //                         display: true,
+            //                         text: 'Number of Wells'
+            //                     }
+            //                 }
+            //             }
+            //         }
+            //     });
+            // }
+            /*
+            const statesdrop = document.getElementById('states-down');
+            states-down.addEventListener('change', changestates)
+            function changestates() {
+                console.log(states-down.value);
+                myChart.data.datasets[0].d
+            }
+            */
+        </script>
 
 
     <script type="module" src="petroleumProduction.js"></script>

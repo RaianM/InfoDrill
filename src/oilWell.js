@@ -29,6 +29,31 @@ export function getLabels() {
     return sendOilStuff;
 }
 
+export function getStateLabels(state) {
+    let stateD = [];
+    for(let i = 0; i < arrSize; i++) {
+        if (data['response']['data'][i]['area-name'] == state && data['response']['data'][i]['period'] >= 2012) {
+            stateD.push([data['response']['data'][i]['period'], data['response']['data'][i]['value']]);
+        }
+    }
+    const stateData = stateD.sort((a, b) => a[0] - b[0])
+
+    let sendStateStuff = [];
+    let sendStateLabels = [];
+    let sendStateData = [];
+
+    for(let i = 0; i < stateData.length; i++) {
+        sendStateLabels[i] = stateData[i][0];
+    }
+    for(let i = 0; i < stateData.length; i++) {
+        sendStateData[i] = stateData[i][1];
+    }
+    sendStateStuff[0] = sendStateLabels;
+    sendStateStuff[1] = sendStateData
+
+    return sendStateStuff;
+}
+
 
 
 
